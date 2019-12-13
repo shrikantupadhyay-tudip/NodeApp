@@ -24,7 +24,7 @@ node('worker1') {
         /* 
 			You would need to first register with DockerHub before you can push images to your account
 		*/
-        docker.withRegistry('localhost:5000', '') {
+        docker.withRegistry('docker-registry.default.svc.cluster.local:5000', '') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
             } 
